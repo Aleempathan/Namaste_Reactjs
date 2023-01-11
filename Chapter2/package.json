@@ -1,0 +1,17 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This is learning react with project knowledge",
+  "scripts": {
+    "test": "Test"
+  },
+  "author": "Aleem Nasiyathulla",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "react":"^18.2.0",
+    "react-dom":"^18.2.0"
+  }
+}
