@@ -19,11 +19,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-<<<<<<< HEAD
-  "browserslist":[
-=======
   "browserslist": [
->>>>>>> af52d1c (chapter3 assignment completed)
     "last 2 versions"
   ]
 }
