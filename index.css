@@ -27,7 +27,7 @@
     color: black;
     padding: 10px;
     box-shadow: 1px 0px 4px 1px gray;
-    width: 200px;
+    width: 197px;
     border-radius: 5px;
     margin: 10px;
 }
@@ -42,20 +42,28 @@
 }
 
 .title {
-    font-size: 17px;
-    font-weight: 600;
-    word-break: break-word;
-    display: block;
+  word-break: break-word;
+  font-size: 17px;
+  font-weight: 600;
+  display: block;
+  text-transform: capitalize;
+  margin-top: 5px;
   }
   
   .tags {
     color: #686b78;
       font-size: 13px;
       margin-top: 4px;
+      display: block;
   }
   
   .rating {
-    background-color: #db7c38;
     color: #fff;
-  }
-  
+    background-color: #db384c;
+    padding-inline: 5px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-block: 8px;
+    position: sticky;
+    bottom: 0;
+    }
