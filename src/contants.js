@@ -732,7 +732,7 @@ export const restaurantList = [
       type: "restaurant",
       data: {
         type: "F",
-        id: "496677",
+        id: "496679",
         name: "Uncle Ji Restaurant",
         uuid: "e652ab57-22c2-4226-b5ea-a5caa26ee0f8",
         city: "22",
