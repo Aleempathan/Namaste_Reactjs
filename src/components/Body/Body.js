@@ -1,4 +1,4 @@
- import { IMG_CNDURL,restaurantList } from "../../contants";
+import { IMG_CNDURL,restaurantList } from "../../contants";
 import { useState } from "react";
 import './Body.css'
 
@@ -12,6 +12,7 @@ export const Restaurant = ({name,cloudinaryImageId,cuisines,avgRating}) =>(
     </div>
     </>
   )
+
   const Body =() =>{
 
   let [searchText,setSearchText] = useState("");
@@ -22,10 +23,10 @@ export const Restaurant = ({name,cloudinaryImageId,cuisines,avgRating}) =>(
 
   return (
     <>
-    <span  className="inputContainer">
+    <div  className="inputContainer">
     <input  className="userInput"  type="text" placeholder="search" value={searchText} onChange={(e) => {filterdata(e.target.value),setSearchText(e.target.value)}} />
-    <button className="searchButton" onClick={()=>filterdata(searchText)}><i class="fa fa-search" aria-hidden="true"></i></button>
-    </span>
+    <button className="searchButton" onClick={()=>filterdata(searchText)}><i className="fa fa-search" aria-hidden="true"></i></button>
+    </div>
 
     <div className="restaurantList">
     { restaurantListData.map((restaurant) =>{
