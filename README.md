@@ -1,7 +1,12 @@
 # `Learn React With Aleem 👨🏻‍💻 Series`
    Documenting my learning journey of [Namaste React Live Course](https://learn.namastedev.com/) conducted by Akshay Saini
 
-## Class Summary `Chapter - 05 Let's Get Hooked` (08/03/2023)
-  Chapter-05 was the continuation of previous chapter where we started to develop a food delivery app. In this chapter, we re-organised the repo structure, understood the importance of clean coding principles, different ways of exporting and importing modules(components). Then, the hero of this chapter `Hooks` got everyone hooked to their screen. It was indeed a 3 hours knowledge heavy session where foundation of hooks was laid. We used hooks to filter the restaurants based on search input. Find my version of detailed explanation of these concepts in [theory-assignment.md](https://github.com/Learn-React-With-Harshi/chapter-05-lets-get-hooked/blob/main/theory-assignment.md).
+## Class Summary `Chapter - 06 Exploring the world (14/01/2023)`
 
-One line about this chapter : `Hook is just normal function which manages the local variable(state), which can only be modified using it's function useState() to create a state and assign a initial value and setState() to update the state.` 
+Until last chapter, we were using mock data to render the UI. In this chapter, we learnt about working with real time data from the Web (Our world basically). Then, we covered different types of System Architectures, different approaches to fetch API and render in UI. Today's important concept was one of the basic React Hooks useEffect. We tried using useEffect in all combinations and understanding it in depth. Importance of conditional rendering and Shimmer in UI were explained.
+
+One line about this chapter : React is called react because it reacts to every state change and renders only the component in which the state is present
+
+Check out Chapter-06 Live for the live demo of this chapter's coding assignment (InstaFood Version 2.0). Also check out the following chapters to see how InstaFood has progressed. Happy Reacting !!!
+
+If you are interested in other chapters of this series, please browse through the my repositories

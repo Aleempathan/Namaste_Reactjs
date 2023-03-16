@@ -11,7 +11,7 @@
 .userInput {
   border: none;
   outline: none;
-  width: 87%;
+  width: 85%;
   padding-left: 10px;
   font-size: 14px;
 }
@@ -21,4 +21,24 @@
   border: none;
   background-color: transparent;
   border-left: 1px solid;
+}
+
+.grid-column-4 {
+  grid-template-columns: auto auto auto auto;
+  margin-top: 17px !important;
+}
+
+.image_container{
+  display: flex;
+  justify-content: center;
+}
+.image_nofound{
+  display: flex;
+  justify-content: center;
+}
+.image_container img{
+width: 40%;
+}
+.image_nofound h1{
+margin: 0;
 }
