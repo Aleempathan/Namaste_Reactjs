@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./Body.css";
 import Shimmer from "../shimmer";
 import logo from "../../assets/11174.jpg";
-
+import { Link } from "react-router-dom";
 export const Restaurant = ({
   name,
   cloudinaryImageId,
@@ -44,7 +44,7 @@ const Body = () => {
     setrestaurantListData(json?.data?.cards[2]?.data?.data?.cards);
     setallrestaurantListData(json?.data?.cards[2]?.data?.data?.cards);
   }
-  return allrestaurantListData.length > 0 ? (
+  return allrestaurantListData?.length > 0 ? (
     <>
       <span className="inputContainer">
         <input
@@ -62,9 +62,11 @@ const Body = () => {
       </span>
 
       <div className="restaurantList">
-        {restaurantListData.length > 0 ? (
-          restaurantListData?.map((restaurant) => {
-            return <Restaurant {...restaurant.data} key={restaurant.data.id} />;
+        {restaurantListData?.length > 0 ? (
+          restaurantListData?.map((restaurant) => { 
+            return <Link to={'/resturant/'+restaurant.data.id}  key={restaurant.data.id}>
+             <Restaurant {...restaurant.data} />
+             </Link>
           })
         ) : (
           <div>
