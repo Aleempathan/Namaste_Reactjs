@@ -1,61 +1,65 @@
 
-# `Learn React With Aleem` 👨🏻‍💻 Series 
+# `Learn React With Aleem` Series 
    Documenting my learning journey of [Namaste React Live Course](https://learn.namastedev.com/) conducted by Akshay Saini
 
-## Theory Assignment: `Chapter - 07 Finding the path` (15/03/2023)
+## Theory Assignment: `Chapter - 08 Let's get Classy` (21/03/2023)
 
-### 1. What are various ways to add images into our App? Explain with code examples
+### 1. How do you create Nested Routes react-router-dom cofiguration</li>
+	
 
-- Using the full URL of the image for the web (CDN) or any public images.
+### 2. Read abt createHashRouter, createMemoryRouter from React Router docs.
 
-Example : `<img src="https://reactjs.org/logo-og.png" alt="React Image" />`
+### 3. What is the order of life cycle method calls in Class Based Components
 
-- Adding the image into the project 
-Drag your image into your project and import it into the desired component
+ Class based components are executed in two phases : Render phase & commit phase. 
 
-```
-import reactLogo from "./reactLogo.png";
+ Render phase is pure and no side effects. It may be paused, restarted or aborted by React (when child component is created for eg). The constructor(), render() and componentDidMount() happens in this phase. 
 
-export default function App() {
-  
-  return <img src={reactLogo} alt="react logo" />
-}
-```
+ In constructor, the props are passed to its parents. 
 
-- The correct way to structure images in your project is to add them in an `images` folder. If you are using other `assets` than just images, you might want to add all the `assets` folders. 
+ These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
 
-```
-import reactLogo from "../../assets/images/reactLogo.png";
+ Mounting : 
 
-export default function App() {
-  
-  return <img src={reactLogo} alt="react logo" />
-}
-```
+ 1. constructor - The constructor for a React component is called before it is mounted. When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.
+   - Initializing local state by assigning an object to this.state
+   - Binding event handler methods to an instance.
 
-### 2. What would happen if we do console.log(useState())?
-  If we do `console.log(useState())`, we get an array `[undefined, f]`  where first element `state` is undefined and the `setState` function is `bound dispatchSetState`.
+Constructor is the only place where you should assign this.state directly. In all other methods, you need to use this.setState() instead.
 
-### 3. How will useEffect behave if we don't add a dependency array ?
+2. componentDidMount() - componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
+You may call setState() immediately in componentDidMount() so that it triggers re-render before the browser updates the screen.
 
-Syntax : useEffect(setup,[dependencies]? )
+ Updating : 
+ 3. componentDidUpdate() - componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
 
-`Case 1 : useEffect(setup)` 
-   When the dependency array is not included in the arguments of useEffect() hook, the setup function will be executed `every time` the component is rendered and re-rendered.
-
-`Case 2 : useEffect(setup,[])`
-   When the dependency array is empty in the arguments of useEffect() hook, the setup function will be executed `only one time` during the initial render of the component.
-
-`Case 3 : useEffect(setup, [state])`
-   When the dependency array contains an array of states,  the setup function will be executed  `one time` during the initial render of the component and also `whenever` there is a `change in the state`.
-
-### 4. What is SPA?
-
-Single Page Application (SPA) is a web application that dynamically updates the webpage with data from web server without reloading/refreshing the entire page. All the HTML, CSS, JS are retrieved in the initial load and other data/resources can be loaded dynamically whenever required. Example : Facebook is a Single Page Application which loads lot of components and refreshes only the required component.
+ Unmounting :
+ 4. componentWillUnmount() -componentWillUnmount() is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
 
 
-### 5. What is difference between Client Side Routing and Server Side Routing?
+### 4. Why do we use componentDidMount?
 
-In Server-side routing or rendering (SSR), every change in URL, http request is made to server to fetch the webpage, and replace the current webpage with the older one. 
+If you need to load data from a remote endpoint, this is a good place to instantiate the network request. This method is a good place to set up any subscriptions. You may call setState() immediately in componentDidMount(). It will trigger an extra rendering, but it will happen before the browser updates the screen. 
 
-In Client-side routing or rendering (CSR), during the first load, the webapp is loaded from server to client, after which whenever there is a change in URL, the router library navigates the user to the new page without sending any request to backend. All Single Page Applications uses client-side routing. 
+### 5.  Why do we use componentWillUnmount? Show with example
+componentWillUnmount is used to cleanup any function/subscriptions that will be running even after the component is unmounted. 
+
+For example, in Repo class, during componentDidMount() a timer is set with an interval of every one second to print in console. When the component is unmounted (users moves to a different page), the timer will be running in the background, which we might not even realise and causing huge performance issue. To avoid such situations the cleanup function can be done in componentWillUnmount, in this example clearInterval(timer) to clear the timer interval before unmounting Repo component.
+
+### 6. (Research) Why do we use super(props) in constructor?
+
+super() is used inside constructor of a class to derive the parent's all properties inside the class that extended it. 
+If super() is not used, then `Reference Error : Must call super constructor in derived classes before accessing 'this' or returning from derived constructor` is thrown in the console.
+
+A component that extends `React.Component` must call the `super()` constructor in the derived class since it’s required to access this context inside the derived class constructor.
+
+When you try to use props passed on parent to child component in child component using `this.props.name`, it will still work without super(props). Only super() is also enought for accessing props in render method. 
+
+The main difference between super() and super(props) is the this.props is undefined in child's constructor in super() but this.props contains the passed props if super(props) is used.
+
+### 7. (Research) Why can't we have the callback function of useEffect async?
+
+useEffect expects it's callback function to return nothing or return a function (cleanup function that is called when the component is unmounted). If we make the callback function as async, it will return a promise which is not expected.
+
+Solution to this is not making the callback function async but created another async function inside callback function of useEffect() 
+
