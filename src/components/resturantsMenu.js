@@ -4,13 +4,14 @@ import { IMG_CNDURL, restaurantList } from "../contants";
 
 const Menulist = (propd) => {
   const res = propd.restr
+  const idref = propd.id
   return (
     
     res?.card?.card?.title !== undefined ?
-    <div className="restaurants_card_menu" style={{ marginTop: '23px !important' }}>
+    <div >
       {
 
-        <div >
+        <div className="restaurants_card_menu" style={{ marginTop: '23px !important' }} key={idref}>
           <h1>
             {res?.card?.card?.title}
            <span > ({res?.card?.card?.itemCards?.length})</span>
@@ -26,7 +27,6 @@ const Menulist = (propd) => {
                 </span>
                 { item?.card?.info?.imageId !== undefined ?
                  <img src={IMG_CNDURL + item?.card?.info?.imageId} alt="" className="img_menu_list" />:''
-
                 }
                
               </div>
@@ -64,13 +64,17 @@ const RestaurantsMenu = () => {
   return (
     <>
       <h2>{resturantsDetails?.data.cards[0].card.card.info.name}</h2>
-      <img
+      {
+        resturantsDetails?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId !== undefined ?
+        <img
         src={
           IMG_CNDURL +
           resturantsDetails?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId
         }
         alt=""
-      />
+      />:''
+      }
+     
       <h3>
         {resturantsDetails?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}
       </h3>
@@ -85,7 +89,7 @@ const RestaurantsMenu = () => {
       <div className="menuList" style={{ marginTop: '13px' }}>
         {
           resturantsMenu?.map((resturant, index) => {
-            return <Menulist restr={resturant} key={index} />
+            return <Menulist restr={resturant} key={index} id={index} />
           })
 
         }
