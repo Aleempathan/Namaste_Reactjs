@@ -1,17 +1,17 @@
 # `Learn React With Aleem 👩🏻‍💻 Series`
    Documenting my learning journey of [Namaste React Live Course](https://learn.namastedev.com/) conducted by Akshay Saini
 
-## Class Summary `Chapter - 08 Let's get Classy` (21/01/2023)
-  
-  Chapter-08 was all about understanding the creating class-based component, it's different lifecycle methods, whats happening under the hood. It was an amazing session as we can easily grasp the concept since we already know how component are rendered in react using functional components. We even discussed about various possible interview questions. 
- 
-Definitely this chapter deserves two lines :
+Class Summary Chapter - 09 Optimizing our app (22/01/2023)
+This is the 9th session which means we have already crossed half of the Namaste course and started diving into advanced concepts.
 
-Two lines about this chapter : 
+The first half of the chapter was about Why to use, How to create, Where to create and When to use Custom Hooks were explained. Difference between helper functions and custom hooks were discussed with examples. We created a helper function (filtering logic) and two custom hooks (check network connection and fetch API data).
 
-`There are 2 types of data in a component, one is coming from parent through props and accessed using this.props and another is local state within the component that is created in constructor() and accessed using this.state and modified using this.setState()`
+The second half of the chapter was about optimizing our app using lazy loading/ on demand loading mechanism.
 
+Find my version of detailed explanation of these concepts in theory-assignment.md. Check coding-assignment.md for all the features that I implemented in this chapter.
 
-`Whenever a component is called, first constructor() is called, followed by render(), if any children are present in render(), then those children's constructor & render() method is called, after which componentDidMount() of children (in order) is called before parent's componentDidMount, followed by componentDidUpdate() and componentWillUnmount of children followed by parent`
+One line about this chapter : Custom Hooks is similar to a normal javascript function which does some operation on the given data, but can use state and other react hooks to update the DOM (two-way binding)
+
+Check out Chapter-09 Live for the live demo of this chapter's coding assignment (InstaFood Version 5.0). Also check out the following chapters to see how InstaFood has progressed. Happy Reacting !!!
 
 

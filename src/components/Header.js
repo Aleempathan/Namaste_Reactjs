@@ -1,12 +1,16 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../Utils/useOnline"
 const Brandlogo =()=>(
     <img src={logo} alt="brandlogo" width={100} />
     )
     
-    const Navlist = () =>(
-      <ul>
+    const Navlist = () =>{
+      const isOnline = useOnline()
+      return (
+        <>
+        <ul>
         <Link to="/">
         <li>Home</li>
         </Link>
@@ -16,12 +20,25 @@ const Brandlogo =()=>(
         <Link to="/contact">
         <li>Contact Us</li>
         </Link>
+        <Link to="/instamat">
+        <li>Instamart</li>
+        </Link>
        
         <li>Offers</li>
         <li>Sign In</li>
         <li>Cart</li>
+
+        {
+          isOnline ?'✅':'🔴'
+        }
       </ul>
-    )
+      </>
+      )
+    }
+
+    
+      
+    
     
     
 
